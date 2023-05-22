@@ -26,17 +26,86 @@ public interface Cajero {
 
     /**
      * 
-     * @param name
+     * @param valor
+     * @param usuario
+     */
+    @WebMethod
+    @RequestWrapper(localName = "retirar", targetNamespace = "http://ws/", className = "ws.Retirar")
+    @ResponseWrapper(localName = "retirarResponse", targetNamespace = "http://ws/", className = "ws.RetirarResponse")
+    @Action(input = "http://ws/Cajero/retirarRequest", output = "http://ws/Cajero/retirarResponse")
+    public void retirar(
+        @WebParam(name = "valor", targetNamespace = "")
+        float valor,
+        @WebParam(name = "usuario", targetNamespace = "")
+        String usuario);
+
+    /**
+     * 
+     * @param clave
+     * @param usuario
      * @return
-     *     returns java.lang.String
+     *     returns boolean
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://ws/", className = "ws.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://ws/", className = "ws.HelloResponse")
-    @Action(input = "http://ws/Cajero/helloRequest", output = "http://ws/Cajero/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
+    @RequestWrapper(localName = "login", targetNamespace = "http://ws/", className = "ws.Login")
+    @ResponseWrapper(localName = "loginResponse", targetNamespace = "http://ws/", className = "ws.LoginResponse")
+    @Action(input = "http://ws/Cajero/loginRequest", output = "http://ws/Cajero/loginResponse")
+    public boolean login(
+        @WebParam(name = "usuario", targetNamespace = "")
+        String usuario,
+        @WebParam(name = "clave", targetNamespace = "")
+        String clave);
+
+    /**
+     * 
+     * @param clave
+     * @param repclave
+     * @param saldoinical
+     * @param usuario
+     */
+    @WebMethod
+    @RequestWrapper(localName = "registro", targetNamespace = "http://ws/", className = "ws.Registro")
+    @ResponseWrapper(localName = "registroResponse", targetNamespace = "http://ws/", className = "ws.RegistroResponse")
+    @Action(input = "http://ws/Cajero/registroRequest", output = "http://ws/Cajero/registroResponse")
+    public void registro(
+        @WebParam(name = "usuario", targetNamespace = "")
+        String usuario,
+        @WebParam(name = "clave", targetNamespace = "")
+        String clave,
+        @WebParam(name = "repclave", targetNamespace = "")
+        String repclave,
+        @WebParam(name = "saldoinical", targetNamespace = "")
+        float saldoinical);
+
+    /**
+     * 
+     * @param usuario
+     * @return
+     *     returns float
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "saldo", targetNamespace = "http://ws/", className = "ws.Saldo")
+    @ResponseWrapper(localName = "saldoResponse", targetNamespace = "http://ws/", className = "ws.SaldoResponse")
+    @Action(input = "http://ws/Cajero/saldoRequest", output = "http://ws/Cajero/saldoResponse")
+    public float saldo(
+        @WebParam(name = "usuario", targetNamespace = "")
+        String usuario);
+
+    /**
+     * 
+     * @param usuario
+     * @param saldo
+     */
+    @WebMethod
+    @RequestWrapper(localName = "depositar", targetNamespace = "http://ws/", className = "ws.Depositar")
+    @ResponseWrapper(localName = "depositarResponse", targetNamespace = "http://ws/", className = "ws.DepositarResponse")
+    @Action(input = "http://ws/Cajero/depositarRequest", output = "http://ws/Cajero/depositarResponse")
+    public void depositar(
+        @WebParam(name = "saldo", targetNamespace = "")
+        float saldo,
+        @WebParam(name = "usuario", targetNamespace = "")
+        String usuario);
 
 }

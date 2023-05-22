@@ -4,21 +4,97 @@
 <xsd:import namespace="http://ws/" schemaLocation="http://localhost:8080/ClienteSOAP/Cajero?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
+<message name="retirar">
+<part name="parameters" element="tns:retirar"/>
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
+<message name="retirarResponse">
+<part name="parameters" element="tns:retirarResponse"/>
+</message>
+<message name="login">
+<part name="parameters" element="tns:login"/>
+</message>
+<message name="loginResponse">
+<part name="parameters" element="tns:loginResponse"/>
+</message>
+<message name="registro">
+<part name="parameters" element="tns:registro"/>
+</message>
+<message name="registroResponse">
+<part name="parameters" element="tns:registroResponse"/>
+</message>
+<message name="saldo">
+<part name="parameters" element="tns:saldo"/>
+</message>
+<message name="saldoResponse">
+<part name="parameters" element="tns:saldoResponse"/>
+</message>
+<message name="depositar">
+<part name="parameters" element="tns:depositar"/>
+</message>
+<message name="depositarResponse">
+<part name="parameters" element="tns:depositarResponse"/>
 </message>
 <portType name="Cajero">
-<operation name="hello">
-<input wsam:Action="http://ws/Cajero/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://ws/Cajero/helloResponse" message="tns:helloResponse"/>
+<operation name="retirar">
+<input wsam:Action="http://ws/Cajero/retirarRequest" message="tns:retirar"/>
+<output wsam:Action="http://ws/Cajero/retirarResponse" message="tns:retirarResponse"/>
+</operation>
+<operation name="login">
+<input wsam:Action="http://ws/Cajero/loginRequest" message="tns:login"/>
+<output wsam:Action="http://ws/Cajero/loginResponse" message="tns:loginResponse"/>
+</operation>
+<operation name="registro">
+<input wsam:Action="http://ws/Cajero/registroRequest" message="tns:registro"/>
+<output wsam:Action="http://ws/Cajero/registroResponse" message="tns:registroResponse"/>
+</operation>
+<operation name="saldo">
+<input wsam:Action="http://ws/Cajero/saldoRequest" message="tns:saldo"/>
+<output wsam:Action="http://ws/Cajero/saldoResponse" message="tns:saldoResponse"/>
+</operation>
+<operation name="depositar">
+<input wsam:Action="http://ws/Cajero/depositarRequest" message="tns:depositar"/>
+<output wsam:Action="http://ws/Cajero/depositarResponse" message="tns:depositarResponse"/>
 </operation>
 </portType>
 <binding name="CajeroPortBinding" type="tns:Cajero">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="hello">
+<operation name="retirar">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="login">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="registro">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="saldo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="depositar">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

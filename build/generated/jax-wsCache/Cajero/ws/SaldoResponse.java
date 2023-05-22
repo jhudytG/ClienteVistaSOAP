@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para helloResponse complex type.
+ * <p>Clase Java para saldoResponse complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="helloResponse"&gt;
+ * &lt;complexType name="saldoResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,35 +27,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "helloResponse", propOrder = {
+@XmlType(name = "saldoResponse", propOrder = {
     "_return"
 })
-public class HelloResponse {
+public class SaldoResponse {
 
     @XmlElement(name = "return")
-    protected String _return;
+    protected float _return;
 
     /**
      * Obtiene el valor de la propiedad return.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getReturn() {
+    public float getReturn() {
         return _return;
     }
 
     /**
      * Define el valor de la propiedad return.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setReturn(String value) {
+    public void setReturn(float value) {
         this._return = value;
     }
 

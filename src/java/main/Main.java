@@ -4,15 +4,20 @@
  */
 package main;
 
-import vista.Registro;
+import controlador.Controlador;
+import vista.Login;
+import ws.Cajero_Service;
 
 /**
  *
  * @author jhudy
  */
 public class Main {
-    Registro v = new Registro();
+
     public static void main(String[] args) {
-        
+        Login vista = new Login();
+        Cajero_Service modelo = new Cajero_Service();
+        Controlador controlador = new Controlador(vista, modelo);
+
     }
 }

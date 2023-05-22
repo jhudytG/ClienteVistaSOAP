@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para hello complex type.
+ * <p>Clase Java para saldo complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="hello"&gt;
+ * &lt;complexType name="saldo"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "hello", propOrder = {
-    "name"
+@XmlType(name = "saldo", propOrder = {
+    "usuario"
 })
-public class Hello {
+public class Saldo {
 
-    protected String name;
+    protected String usuario;
 
     /**
-     * Obtiene el valor de la propiedad name.
+     * Obtiene el valor de la propiedad usuario.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getName() {
-        return name;
+    public String getUsuario() {
+        return usuario;
     }
 
     /**
-     * Define el valor de la propiedad name.
+     * Define el valor de la propiedad usuario.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setUsuario(String value) {
+        this.usuario = value;
     }
 
 }
