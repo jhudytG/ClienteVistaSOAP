@@ -65,7 +65,7 @@ public class Controlador {
                 actualizarSaldoUsuario();
                 vcuenta.setVisible(true);
             } else {
-                vlogin.getLblFormularioAcceso().setText("Usuario no existe o las \n credenciales son incorrectas");
+                vlogin.getLblFormularioAcceso().setText("<html><center>Usuario no existe o las credenciales son incorrectas");
             }
         }
     }
@@ -82,25 +82,25 @@ public class Controlador {
         String clave = vlogin.getTxtpssClave().getText();
 
         if (username.isEmpty()) {
-            vlogin.getLblFormularioAcceso().setText("Campo Usuario se encuentra vacío");
+            vlogin.getLblFormularioAcceso().setText("<html><center>Campo Usuario se encuentra vacío");
             vlogin.getLblFormularioAcceso().setForeground(Color.red);
             return false;
         }
 
         if (!validados.validarNombre(username)) {
-            vlogin.getLblFormularioAcceso().setText("Ingrese un nombre de username válido (Ejemplo: carlosc123)");
+            vlogin.getLblFormularioAcceso().setText("<html><center>Ingrese un nombre de username válido (Ejemplo: carlosc123)");
             vlogin.getLblFormularioAcceso().setForeground(Color.red);
             return false;
         }
 
         if (clave.isEmpty()) {
-            vlogin.getLblFormularioAcceso().setText("Campo Clave se encuentra vacío");
+            vlogin.getLblFormularioAcceso().setText("<html><center>Campo Clave se encuentra vacío");
             vlogin.getLblFormularioAcceso().setForeground(Color.red);
             return false;
         }
 
         if (!validados.validarContrasena(clave)) {
-            vlogin.getLblFormularioAcceso().setText("Contraseña inválida. Debe contener al menos una letra minúscula, una letra mayúscula, un número, un carácter especial y tener una longitud entre 8 y 20 caracteres.");
+            vlogin.getLblFormularioAcceso().setText("<html><center>Contraseña inválida. Debe contener al menos una letra minúscula, una letra mayúscula, un número, un carácter especial y tener una longitud entre 8 y 20 caracteres.");
             vlogin.getLblFormularioAcceso().setForeground(Color.red);
             return false;
         }
@@ -110,15 +110,15 @@ public class Controlador {
 
     //Metodos de vista registro
     private void regiatrarNuevo() {
-        String rUser = vregistro.getTxtUsuarioNuevo().getText();
-        String rPass = vregistro.getTxtpssClaveNueva().getText();
-        String rRepPass = vregistro.getTxtpssClaveNuevaRepetir().getText();
-        float rsaldo = Float.parseFloat(vregistro.getTxtsaldoinicial().getText());
 
         if (validarDatosEntradaRegistro()) {
+            String rUser = vregistro.getTxtUsuarioNuevo().getText();
+            String rPass = vregistro.getTxtpssClaveNueva().getText();
+            String rRepPass = vregistro.getTxtpssClaveNuevaRepetir().getText();
+            float rsaldo = Float.parseFloat(vregistro.getTxtsaldoinicial().getText());
             cliente.registro(rUser, rPass, rRepPass, rsaldo);
             vregistro.getLblRegistroUsuario().setForeground(Color.BLUE);
-            vregistro.getLblRegistroUsuario().setText("Usuario registrado con éxito");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Usuario registrado con éxito");
             vlogin.setVisible(true);
         }
 
@@ -131,49 +131,49 @@ public class Controlador {
         String nuevosaldo = vregistro.getTxtsaldoinicial().getText();
 
         if (nuevoUser.isEmpty()) {
-            vregistro.getLblRegistroUsuario().setText("Campo Usuario se encuentra vacío");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Campo Usuario se encuentra vacío");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (!validados.validarNombre(nuevoUser)) {
-            vregistro.getLblRegistroUsuario().setText("Ingrese un nombre de username válido");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Ingrese un nombre de username válido");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (nuevaPass.isEmpty()) {
-            vregistro.getLblRegistroUsuario().setText("Campo Clave se encuentra vacío");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Campo Clave se encuentra vacío");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (!validados.validarContrasena(nuevaPass)) {
-            vregistro.getLblRegistroUsuario().setText("Contraseña inválida. Debe cumplir los requisitos.");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Contraseña inválida. Debe cumplir los requisitos.");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (nuevaRepPass.isEmpty()) {
-            vregistro.getLblRegistroUsuario().setText("Campo Repetir clave se encuentra vacío");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Campo Repetir clave se encuentra vacío");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (!nuevaPass.equals(nuevaRepPass)) {
-            vregistro.getLblRegistroUsuario().setText("Las claves no coinciden");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Las claves no coinciden");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (nuevosaldo.isEmpty()) {
-            vregistro.getLblRegistroUsuario().setText("Campo Saldo se encuentra vacío");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Campo Saldo se encuentra vacío");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
 
         if (!validados.validarNumeroFloat(nuevosaldo)) {
-            vregistro.getLblRegistroUsuario().setText("Ingrese un número correcto");
+            vregistro.getLblRegistroUsuario().setText("<html><center>Ingrese un número correcto");
             vregistro.getLblRegistroUsuario().setForeground(Color.red);
             return false;
         }
@@ -189,15 +189,15 @@ public class Controlador {
         if (vcuenta.getRbtnDeposito().isSelected()) {
             cliente.depositar(valor, username);
             actualizarSaldoUsuario();
-            mostrarMensajeValidación("Depósito realizado con éxito", new Color(49, 86, 153));
+            mostrarMensajeValidación("<html><center>Depósito realizado con éxito", new Color(49, 86, 153));
         } else {
             if (vcuenta.getRbtnRetiro().isSelected()) {
                 if (valor <= cliente.saldo(username)) {
                     cliente.retirar(valor, username);
                     actualizarSaldoUsuario();
-                    mostrarMensajeValidación("Retiro realizado con éxito", new Color(49, 86, 153));
+                    mostrarMensajeValidación("<html><center>Retiro realizado con éxito", new Color(49, 86, 153));
                 } else {
-                    mostrarMensajeValidación("Saldo insuficiente", Color.red);
+                    mostrarMensajeValidación("<html><center>Saldo insuficiente", Color.red);
                 }
 
             }
